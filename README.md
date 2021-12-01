@@ -4,7 +4,6 @@ This repository automatically builds docker containers containing tools
 to access Brightbox Cloud.
 
 * Brightbox Cloud CLI
-* Terraform
 
 The docker containers are built once a day, ensuring you always have
 the latest tools available. Just replace your usual command line with
@@ -27,28 +26,4 @@ docker run -it --user $(id -u):$(id -g) -e "HOME=$HOME" -v ~/.brightbox:$HOME/.b
 
 ```shell
 docker run -it --user $(id -u):$(id -g) -e "HOME=$HOME" -v ~/.brightbox:$HOME/.brightbox brightbox/cli server create img-6xysw
-```
-
-### Terraform Usage
-
-The [Terraform](https://www.brightbox.com/docs/guides/terraform/getting-started/) container includes the terraform tool and the Brightbox
-provider plugin, so you're ready to go with no installation. Run
-the docker container from the directory containing your terraform
-configuration - as you would do with a locally installed tool.
-
-You can use this version with the following:
-```shell
-docker run -i -t -v $(pwd):/app/ -w /app/ brightbox/terraform <command>
-```
-
-For example:
-Initialize the plugins (You will only need to do this once)
-
-```shell
-docker run -i -t -v $(pwd):/app/ -w /app/ brightbox/terraform init
-```
-
-Show the build plan
-```shell
-docker run -i -t -v $(pwd):/app/ -w /app/ brightbox/terraform plan
 ```
