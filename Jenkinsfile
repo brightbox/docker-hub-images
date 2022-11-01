@@ -10,6 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'docker build -f "Dockerfile-cli" -t brightbox/cli:latest .'
+        sh 'docker build -f "Dockerfile-swift" -t brightbox/swift:latest .'
       }
     }
     stage('Publish') {
@@ -19,6 +20,7 @@ pipeline {
       steps {
 	withDockerRegistry([ credentialsId: "6533de7e-17a4-4376-969b-e86bc1e4f903", url: "" ]) {
 	  sh 'docker push brightbox/cli:latest'
+	  sh 'docker push brightbox/swift:latest'
 	}
       }
     }

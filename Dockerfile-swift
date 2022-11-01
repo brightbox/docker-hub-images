@@ -1,0 +1,6 @@
+FROM python:slim
+MAINTAINER support@brightbox.co.uk
+
+RUN pip install python-swiftclient
+
+ENTRYPOINT ["/usr/local/bin/swift"]
