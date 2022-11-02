@@ -1,4 +1,4 @@
-FROM ruby:slim
+FROM ruby:3-slim
 MAINTAINER support@brightbox.co.uk
 
 RUN gem install brightbox-cli
